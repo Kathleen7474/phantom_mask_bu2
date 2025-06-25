@@ -2,6 +2,8 @@ from flask import Flask
 from .models import db
 from app.routes.pharmacy import pharmacy_bp
 from app.routes.users import user_bp
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 
 # ps.不該放進create app的東西
@@ -18,7 +20,8 @@ def create_app(test_config=None):
     if test_config:
         app.config.update(test_config)
     else:
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../phantom_mask.db'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, '..', 'phantom_mask.db')
+        # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../phantom_mask.db'
 
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -27,7 +30,6 @@ def create_app(test_config=None):
 
     # 註冊blueprint
     # 好處是如果有用url_prefix，在寫route那邊就可以不用再寫一次'/pharmacy'
-    # 但先這樣吧
     app.register_blueprint(pharmacy_bp)
     app.register_blueprint(user_bp)
 
