@@ -1,7 +1,3 @@
----
-title: Response
-
----
 
 # Response
 
