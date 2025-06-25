@@ -1194,8 +1194,8 @@ Note: Render’s free tier instances will automatically sleep after a period of 
 ### Running Locally
 
 Please follow these steps to run the project locally
-	1.	Environment Requirements: Python 3.x
-	2.	Install dependencies:
+1. Environment Requirements: Python 3.x
+2. Install dependencies:
 ```bash=
 pip install -r requirements.txt
 ```
@@ -1211,8 +1211,6 @@ app.run(port=AVAILABLE_PORT)
     
 
 ## Additional Data
-
-### ERD
 
 ### Folder Structure
 ```
